@@ -1,8 +1,0 @@
-[core]
-	repositoryformatversion = 0
-	filemode = true
-	bare = false
-	logallrefupdates = true
-	worktree = /Users/nedwed/Downloads/2015-mini-smart-vehicles-master/group-1
-	ignorecase = true
-	precomposeunicode = true
