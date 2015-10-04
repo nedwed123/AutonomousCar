@@ -1,0 +1,706 @@
+diff -Naur ChibiOS_2.6.5.org/os/hal/include/STM32F4GPIO_AF.h ChibiOS_2.6.5/os/hal/include/STM32F4GPIO_AF.h
+--- ChibiOS_2.6.5.org/os/hal/include/STM32F4GPIO_AF.h	1970-01-01 01:00:00.000000000 +0100
++++ ChibiOS_2.6.5/os/hal/include/STM32F4GPIO_AF.h	2014-07-14 01:41:30.777703049 +0200
+@@ -0,0 +1,73 @@
++/*
++    STM32F4 Alternate Function Naming.
++*/
++
++/**
++ * @file    STM32F4GPIO_AF.h
++ * @brief   Naming for STM32F4 alternate functions.
++ *
++ * @addtogroup HAL
++ * @{
++ */
++
++#ifndef _STM32F4GPIO_AF_H_
++#define _STM32F4GPIO_AF_H_
++
++#define STM32F4GPIO_AF_RTC_50Hz      ((uint8_t)0x00)  /* RTC_50Hz Alternate Function mapping */
++#define STM32F4GPIO_AF_MCO           ((uint8_t)0x00)  /* MCO (MCO1 and MCO2) Alternate Function mapping */
++#define STM32F4GPIO_AF_TAMPER        ((uint8_t)0x00)  /* TAMPER (TAMPER_1 and TAMPER_2) Alternate Function mapping */
++#define STM32F4GPIO_AF_SWJ           ((uint8_t)0x00)  /* SWJ (SWD and JTAG) Alternate Function mapping */
++#define STM32F4GPIO_AF_TRACE         ((uint8_t)0x00)  /* TRACE Alternate Function mapping */
++
++#define STM32F4GPIO_AF_TIM1          ((uint8_t)0x01)  /* TIM1 Alternate Function mapping */
++#define STM32F4GPIO_AF_TIM2          ((uint8_t)0x01)  /* TIM2 Alternate Function mapping */
++
++#define STM32F4GPIO_AF_TIM3          ((uint8_t)0x02)  /* TIM3 Alternate Function mapping */
++#define STM32F4GPIO_AF_TIM4          ((uint8_t)0x02)  /* TIM4 Alternate Function mapping */
++#define STM32F4GPIO_AF_TIM5          ((uint8_t)0x02)  /* TIM5 Alternate Function mapping */
++
++#define STM32F4GPIO_AF_TIM8          ((uint8_t)0x03)  /* TIM8 Alternate Function mapping */
++#define STM32F4GPIO_AF_TIM9          ((uint8_t)0x03)  /* TIM9 Alternate Function mapping */
++#define STM32F4GPIO_AF_TIM10         ((uint8_t)0x03)  /* TIM10 Alternate Function mapping */
++#define STM32F4GPIO_AF_TIM11         ((uint8_t)0x03)  /* TIM11 Alternate Function mapping */
++
++#define STM32F4GPIO_AF_I2C1          ((uint8_t)0x04)  /* I2C1 Alternate Function mapping */
++#define STM32F4GPIO_AF_I2C2          ((uint8_t)0x04)  /* I2C2 Alternate Function mapping */
++#define STM32F4GPIO_AF_I2C3          ((uint8_t)0x04)  /* I2C3 Alternate Function mapping */
++
++#define STM32F4GPIO_AF_SPI1          ((uint8_t)0x05)  /* SPI1 Alternate Function mapping */
++#define STM32F4GPIO_AF_SPI2          ((uint8_t)0x05)  /* SPI2/I2S2 Alternate Function mapping */
++
++#define STM32F4GPIO_AF_SPI3          ((uint8_t)0x06)  /* SPI3/I2S3 Alternate Function mapping */
++
++#define STM32F4GPIO_AF_USART1        ((uint8_t)0x07)  /* USART1 Alternate Function mapping */
++#define STM32F4GPIO_AF_USART2        ((uint8_t)0x07)  /* USART2 Alternate Function mapping */
++#define STM32F4GPIO_AF_USART3        ((uint8_t)0x07)  /* USART3 Alternate Function mapping */
++#define STM32F4GPIO_AF_I2S3ext       ((uint8_t)0x07)  /* I2S3ext Alternate Function mapping */
++
++#define STM32F4GPIO_AF_UART4         ((uint8_t)0x08)  /* UART4 Alternate Function mapping */
++#define STM32F4GPIO_AF_UART5         ((uint8_t)0x08)  /* UART5 Alternate Function mapping */
++#define STM32F4GPIO_AF_USART6        ((uint8_t)0x08)  /* USART6 Alternate Function mapping */
++
++#define STM32F4GPIO_AF_CAN1          ((uint8_t)0x09)  /* CAN1 Alternate Function mapping */
++#define STM32F4GPIO_AF_CAN2          ((uint8_t)0x09)  /* CAN2 Alternate Function mapping */
++#define STM32F4GPIO_AF_TIM12         ((uint8_t)0x09)  /* TIM12 Alternate Function mapping */
++#define STM32F4GPIO_AF_TIM13         ((uint8_t)0x09)  /* TIM13 Alternate Function mapping */
++#define STM32F4GPIO_AF_TIM14         ((uint8_t)0x09)  /* TIM14 Alternate Function mapping */
++
++#define STM32F4GPIO_AF_OTG_FS        ((uint8_t)0xA)   /* OTG_FS Alternate Function mapping */
++#define STM32F4GPIO_AF_OTG_HS        ((uint8_t)0xA)   /* OTG_HS Alternate Function mapping */
++
++#define STM32F4GPIO_AF_ETH           ((uint8_t)0x0B)  /* ETHERNET Alternate Function mapping */
++
++#define STM32F4GPIO_AF_FSMC          ((uint8_t)0xC)   /* FSMC Alternate Function mapping */
++#define STM32F4GPIO_AF_OTG_HS_FS     ((uint8_t)0xC)   /* OTG HS configured in FS, Alternate Function mapping */
++#define STM32F4GPIO_AF_SDIO          ((uint8_t)0xC)   /* SDIO Alternate Function mapping */
++
++#define STM32F4GPIO_AF_DCMI          ((uint8_t)0x0D)  /* DCMI Alternate Function mapping */
++
++#define STM32F4GPIO_AF_EVENTOUT      ((uint8_t)0x0F)  /* EVENTOUT Alternate Function mapping */
++
++#endif /* _STM32F4GPIO_AF_H_ */
++
++/** @} */
+diff -Naur ChibiOS_2.6.5.org/os/hal/platforms/STM32/TIMv1/icu_lld.c ChibiOS_2.6.5/os/hal/platforms/STM32/TIMv1/icu_lld.c
+--- ChibiOS_2.6.5.org/os/hal/platforms/STM32/TIMv1/icu_lld.c	2014-05-01 09:53:18.000000000 +0200
++++ ChibiOS_2.6.5/os/hal/platforms/STM32/TIMv1/icu_lld.c	2014-07-14 01:53:29.501704342 +0200
+@@ -95,6 +95,30 @@
+ ICUDriver ICUD9;
+ #endif
+ 
++/**
++ * @brief   ICUD12 driver identifier.
++ * @note    The driver ICUD12 allocates the timer TIM12 when enabled.
++ */
++#if STM32_ICU_USE_TIM12 || defined(__DOXYGEN__)
++ICUDriver ICUD12;
++#endif
++
++/**
++ * @brief   ICUD13 driver identifier.
++ * @note    The driver ICUD13 allocates the timer TIM13 when enabled.
++ */
++#if STM32_ICU_USE_TIM13 || defined(__DOXYGEN__)
++ICUDriver ICUD13;
++#endif
++
++/**
++ * @brief   ICUD14 driver identifier.
++ * @note    The driver ICUD14 allocates the timer TIM14 when enabled.
++ */
++#if STM32_ICU_USE_TIM14 || defined(__DOXYGEN__)
++ICUDriver ICUD14;
++#endif
++
+ /*===========================================================================*/
+ /* Driver local variables and types.                                         */
+ /*===========================================================================*/
+@@ -327,6 +351,63 @@
+ }
+ #endif /* STM32_ICU_USE_TIM9 */
+ 
++#if STM32_ICU_USE_TIM12
++/**
++ * @brief   TIM12 compare interrupt handler.
++ * @note    It is assumed that the various sources are only activated if the
++ *          associated callback pointer is not equal to @p NULL in order to not
++ *          perform an extra check in a potentially critical interrupt handler.
++ *
++ * @isr
++ */
++CH_IRQ_HANDLER(TIM8_BRK_IRQHandler) {  /* Bracket part is from hal_lld.h */
++
++  CH_IRQ_PROLOGUE();
++
++  icu_lld_serve_interrupt(&ICUD12);
++
++  CH_IRQ_EPILOGUE();
++}
++#endif /* STM32_ICU_USE_TIM12 */
++
++#if STM32_ICU_USE_TIM13
++/**
++ * @brief   TIM13 compare interrupt handler.
++ * @note    It is assumed that the various sources are only activated if the
++ *          associated callback pointer is not equal to @p NULL in order to not
++ *          perform an extra check in a potentially critical interrupt handler.
++ *
++ * @isr
++ */
++CH_IRQ_HANDLER(TIM8_UP_IRQHandler) {  /* Bracket part is from hal_lld.h */
++
++  CH_IRQ_PROLOGUE();
++
++  icu_lld_serve_interrupt(&ICUD13);
++
++  CH_IRQ_EPILOGUE();
++}
++#endif /* STM32_ICU_USE_TIM13 */
++
++#if STM32_ICU_USE_TIM14
++/**
++ * @brief   TIM14 compare interrupt handler.
++ * @note    It is assumed that the various sources are only activated if the
++ *          associated callback pointer is not equal to @p NULL in order to not
++ *          perform an extra check in a potentially critical interrupt handler.
++ *
++ * @isr
++ */
++CH_IRQ_HANDLER(TIM8_TRG_COM_IRQHandler) {  /* Bracket part is from hal_lld.h */
++
++  CH_IRQ_PROLOGUE();
++
++  icu_lld_serve_interrupt(&ICUD14);
++
++  CH_IRQ_EPILOGUE();
++}
++#endif /* STM32_ICU_USE_TIM14 */
++
+ /*===========================================================================*/
+ /* Driver exported functions.                                                */
+ /*===========================================================================*/
+@@ -379,6 +460,24 @@
+   icuObjectInit(&ICUD9);
+   ICUD9.tim = STM32_TIM9;
+ #endif
++
++#if STM32_ICU_USE_TIM12
++  /* Driver initialization.*/
++  icuObjectInit(&ICUD12);
++  ICUD12.tim = STM32_TIM12;
++#endif
++
++#if STM32_ICU_USE_TIM13
++  /* Driver initialization.*/
++  icuObjectInit(&ICUD13);
++  ICUD13.tim = STM32_TIM13;
++#endif
++
++#if STM32_ICU_USE_TIM14
++  /* Driver initialization.*/
++  icuObjectInit(&ICUD14);
++  ICUD14.tim = STM32_TIM14;
++#endif
+ }
+ 
+ /**
+@@ -472,6 +571,33 @@
+       icup->clock = STM32_TIMCLK2;
+     }
+ #endif
++#if STM32_ICU_USE_TIM12
++    if (&ICUD12 == icup) {
++      rccEnableTIM12(FALSE);
++      rccResetTIM12();
++      nvicEnableVector(TIM8_BRK_TIM12_IRQn,
++                       CORTEX_PRIORITY_MASK(STM32_ICU_TIM12_IRQ_PRIORITY));  //First part stm32f4xx.h and Second mcuconf.h
++      icup->clock = STM32_TIMCLK1;
++    }
++#endif
++#if STM32_ICU_USE_TIM13
++    if (&ICUD13 == icup) {
++      rccEnableTIM13(FALSE);
++      rccResetTIM13();
++      nvicEnableVector(TIM8_UP_TIM13_IRQn,
++                       CORTEX_PRIORITY_MASK(STM32_ICU_TIM13_IRQ_PRIORITY));
++      icup->clock = STM32_TIMCLK1;
++    }
++#endif
++#if STM32_ICU_USE_TIM14
++    if (&ICUD14 == icup) {
++      rccEnableTIM14(FALSE);
++      rccResetTIM14();
++      nvicEnableVector(TIM8_TRG_COM_TIM14_IRQn,
++                       CORTEX_PRIORITY_MASK(STM32_ICU_TIM14_IRQ_PRIORITY));
++      icup->clock = STM32_TIMCLK1;
++    }
++#endif
+   }
+   else {
+     /* Driver re-configuration scenario, it must be stopped first.*/
+@@ -602,6 +728,24 @@
+       rccDisableTIM9(FALSE);
+     }
+ #endif
++#if STM32_ICU_USE_TIM12
++    if (&ICUD12 == icup) {
++      nvicDisableVector(TIM8_BRK_TIM12_IRQn); // This part comes from stm32f4xx.h
++      rccDisableTIM12(FALSE);
++    }
++#endif
++#if STM32_ICU_USE_TIM13
++    if (&ICUD13 == icup) {
++      nvicDisableVector(TIM8_UP_TIM13_IRQn);  // This part comes from stm32f4xx.h
++      rccDisableTIM13(FALSE);
++    }
++#endif
++#if STM32_ICU_USE_TIM14
++    if (&ICUD14 == icup) {
++      nvicDisableVector(TIM8_TRG_COM_TIM14_IRQn); // This part comes from stm32f4xx.h
++      rccDisableTIM14(FALSE);
++    }
++#endif
+   }
+ }
+ 
+diff -Naur ChibiOS_2.6.5.org/os/hal/platforms/STM32/TIMv1/icu_lld.h ChibiOS_2.6.5/os/hal/platforms/STM32/TIMv1/icu_lld.h
+--- ChibiOS_2.6.5.org/os/hal/platforms/STM32/TIMv1/icu_lld.h	2013-08-15 10:24:02.000000000 +0200
++++ ChibiOS_2.6.5/os/hal/platforms/STM32/TIMv1/icu_lld.h	2014-07-14 01:50:08.641703789 +0200
+@@ -105,6 +105,33 @@
+ #endif
+ 
+ /**
++ * @brief   ICUD12 driver enable switch.
++ * @details If set to @p TRUE the support for ICUD12 is included.
++ * @note    The default is @p TRUE.
++ */
++#if !defined(STM32_ICU_USE_TIM12) || defined(__DOXYGEN__)
++#define STM32_ICU_USE_TIM12                  FALSE
++#endif
++
++/**
++ * @brief   ICUD13 driver enable switch.
++ * @details If set to @p TRUE the support for ICUD13 is included.
++ * @note    The default is @p TRUE.
++ */
++#if !defined(STM32_ICU_USE_TIM13) || defined(__DOXYGEN__)
++#define STM32_ICU_USE_TIM13                  FALSE
++#endif
++
++/**
++ * @brief   ICUD14 driver enable switch.
++ * @details If set to @p TRUE the support for ICUD14 is included.
++ * @note    The default is @p TRUE.
++ */
++#if !defined(STM32_ICU_USE_TIM14) || defined(__DOXYGEN__)
++#define STM32_ICU_USE_TIM14                  FALSE
++#endif
++
++/**
+  * @brief   ICUD1 interrupt priority level setting.
+  */
+ #if !defined(STM32_ICU_TIM1_IRQ_PRIORITY) || defined(__DOXYGEN__)
+@@ -152,6 +179,27 @@
+ #if !defined(STM32_ICU_TIM9_IRQ_PRIORITY) || defined(__DOXYGEN__)
+ #define STM32_ICU_TIM9_IRQ_PRIORITY         7
+ #endif
++
++/**
++ * @brief   ICUD12 interrupt priority level setting.
++ */
++#if !defined(STM32_ICU_TIM12_IRQ_PRIORITY) || defined(__DOXYGEN__)
++#define STM32_ICU_TIM12_IRQ_PRIORITY        7
++#endif
++
++/**
++ * @brief   ICUD13 interrupt priority level setting.
++ */
++#if !defined(STM32_ICU_TIM13_IRQ_PRIORITY) || defined(__DOXYGEN__)
++#define STM32_ICU_TIM13_IRQ_PRIORITY        7
++#endif
++
++/**
++ * @brief   ICUD14 interrupt priority level setting.
++ */
++#if !defined(STM32_ICU_TIM14_IRQ_PRIORITY) || defined(__DOXYGEN__)
++#define STM32_ICU_TIM14_IRQ_PRIORITY        7
++#endif
+ /** @} */
+ 
+ /*===========================================================================*/
+@@ -186,10 +234,23 @@
+ #error "TIM9 not present in the selected device"
+ #endif
+ 
++#if STM32_ICU_USE_TIM12 && !STM32_HAS_TIM12
++#error "TIM12 not present in the selected device"
++#endif
++
++#if STM32_ICU_USE_TIM13 && !STM32_HAS_TIM13
++#error "TIM13 not present in the selected device"
++#endif
++
++#if STM32_ICU_USE_TIM14 && !STM32_HAS_TIM14
++#error "TIM14 not present in the selected device"
++#endif
++
+ #if !STM32_ICU_USE_TIM1 && !STM32_ICU_USE_TIM2 &&                           \
+     !STM32_ICU_USE_TIM3 && !STM32_ICU_USE_TIM4 &&                           \
+     !STM32_ICU_USE_TIM5 && !STM32_ICU_USE_TIM8 &&                           \
+-    !STM32_ICU_USE_TIM9
++    !STM32_ICU_USE_TIM9 && !STM32_ICU_USE_TIM12 &&                          \
++    !STM32_ICU_USE_TIM13 && !STM32_ICU_USE_TIM14
+ #error "ICU driver activated but no TIM peripheral assigned"
+ #endif
+ 
+@@ -228,6 +289,21 @@
+ #error "Invalid IRQ priority assigned to TIM9"
+ #endif
+ 
++#if STM32_ICU_USE_TIM12 &&                                                   \
++    !CORTEX_IS_VALID_KERNEL_PRIORITY(STM32_ICU_TIM12_IRQ_PRIORITY)
++#error "Invalid IRQ priority assigned to TIM12"
++#endif
++
++#if STM32_ICU_USE_TIM13 &&                                                   \
++    !CORTEX_IS_VALID_KERNEL_PRIORITY(STM32_ICU_TIM13_IRQ_PRIORITY)
++#error "Invalid IRQ priority assigned to TIM13"
++#endif
++
++#if STM32_ICU_USE_TIM14 &&                                                   \
++    !CORTEX_IS_VALID_KERNEL_PRIORITY(STM32_ICU_TIM14_IRQ_PRIORITY)
++#error "Invalid IRQ priority assigned to TIM14"
++#endif
++
+ /*===========================================================================*/
+ /* Driver data structures and types.                                         */
+ /*===========================================================================*/
+@@ -393,6 +469,18 @@
+ extern ICUDriver ICUD9;
+ #endif
+ 
++#if STM32_ICU_USE_TIM12 && !defined(__DOXYGEN__)
++extern ICUDriver ICUD12;
++#endif
++
++#if STM32_ICU_USE_TIM13 && !defined(__DOXYGEN__)
++extern ICUDriver ICUD13;
++#endif
++
++#if STM32_ICU_USE_TIM14 && !defined(__DOXYGEN__)
++extern ICUDriver ICUD14;
++#endif
++
+ #ifdef __cplusplus
+ extern "C" {
+ #endif
+diff -Naur ChibiOS_2.6.5.org/os/various/chsprintf.c ChibiOS_2.6.5/os/various/chsprintf.c
+--- ChibiOS_2.6.5.org/os/various/chsprintf.c	1970-01-01 01:00:00.000000000 +0100
++++ ChibiOS_2.6.5/os/various/chsprintf.c	2014-07-14 01:51:08.469703953 +0200
+@@ -0,0 +1,263 @@
++/*
++    ChibiOS/RT - Copyright (C) 2006-2013 Giovanni Di Sirio
++
++    Licensed under the Apache License, Version 2.0 (the "License");
++    you may not use this file except in compliance with the License.
++    You may obtain a copy of the License at
++
++        http://www.apache.org/licenses/LICENSE-2.0
++
++    Unless required by applicable law or agreed to in writing, software
++    distributed under the License is distributed on an "AS IS" BASIS,
++    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
++    See the License for the specific language governing permissions and
++    limitations under the License.
++*/
++/*
++   Concepts and parts of this file have been contributed by Fabio Utzig.
++ */
++
++/**
++ * @file    chsprintf.c
++ * @brief   Mini sprintf-like functionality.
++ *
++ * @addtogroup chsprintf
++ * @{
++ */
++
++#include <stdarg.h>
++
++#include "ch.h"
++#include "chsprintf.h"
++
++#define MAX_FILLER 11
++#define FLOAT_PRECISION 100000
++
++static char *long_to_string_with_divisor(char *p,
++                                         long num,
++                                         unsigned radix,
++                                         long divisor) {
++  int i;
++  char *q;
++  long l, ll;
++
++  l = num;
++  if (divisor == 0) {
++    ll = num;
++  } else {
++    ll = divisor;
++  }
++
++  q = p + MAX_FILLER;
++  do {
++    i = (int)(l % radix);
++    i += '0';
++    if (i > '9')
++      i += 'A' - '0' - 10;
++    *--q = i;
++    l /= radix;
++  } while ((ll /= radix) != 0);
++
++  i = (int)(p + MAX_FILLER - q);
++  do
++    *p++ = *q++;
++  while (--i);
++
++  return p;
++}
++
++static char *ltoa(char *p, long num, unsigned radix) {
++
++  return long_to_string_with_divisor(p, num, radix, 0);
++}
++
++#if CHPRINTF_USE_FLOAT
++static char *ftoa(char *p, double num) {
++  long l;
++  unsigned long precision = FLOAT_PRECISION;
++
++  l = num;
++  p = long_to_string_with_divisor(p, l, 10, 0);
++  *p++ = '.';
++  l = (num - l) * precision;
++  return long_to_string_with_divisor(p, l, 10, precision / 10);
++}
++#endif
++
++/**
++ * @brief   System formatted output function.
++ * @details This function implements a minimal @p printf() like functionality
++ *          with output on a @p BaseSequentialStream.
++ *          The general parameters format is: %[-][width|*][.precision|*][l|L]p.
++ *          The following parameter types (p) are supported:
++ *          - <b>x</b> hexadecimal integer.
++ *          - <b>X</b> hexadecimal long.
++ *          - <b>o</b> octal integer.
++ *          - <b>O</b> octal long.
++ *          - <b>d</b> decimal signed integer.
++ *          - <b>D</b> decimal signed long.
++ *          - <b>u</b> decimal unsigned integer.
++ *          - <b>U</b> decimal unsigned long.
++ *          - <b>c</b> character.
++ *          - <b>s</b> string.
++ *          .
++ *
++ * @param[in] buf       pointer to a char buffer
++ * @param[in] fmt       formatting string
++ */
++void chsprintf(char *buf, const char *fmt, ...) {
++  va_list ap;
++  char *p, *s, c, filler;
++  int i, precision, width;
++  bool_t is_long, left_align;
++  long l;
++#if CHPRINTF_USE_FLOAT
++  float f;
++  char tmpbuf[2*MAX_FILLER + 1];
++#else
++  char tmpbuf[MAX_FILLER + 1];
++#endif
++
++  va_start(ap, fmt);
++  while (TRUE) {
++    c = *fmt++;
++    if (c == 0) {
++      va_end(ap);
++      return;
++    }
++    if (c != '%') {
++      *(buf++) = (uint8_t)c;
++      continue;
++    }
++    p = tmpbuf;
++    s = tmpbuf;
++    left_align = FALSE;
++    if (*fmt == '-') {
++      fmt++;
++      left_align = TRUE;
++    }
++    filler = ' ';
++    if ((*fmt == '.') || (*fmt == '0')) {
++      fmt++;
++      filler = '0';
++    }
++    width = 0;
++    while (TRUE) {
++      c = *fmt++;
++      if (c >= '0' && c <= '9')
++        c -= '0';
++      else if (c == '*')
++        c = va_arg(ap, int);
++      else
++        break;
++      width = width * 10 + c;
++    }
++    precision = 0;
++    if (c == '.') {
++      while (TRUE) {
++        c = *fmt++;
++        if (c >= '0' && c <= '9')
++          c -= '0';
++        else if (c == '*')
++          c = va_arg(ap, int);
++        else
++          break;
++        precision *= 10;
++        precision += c;
++      }
++    }
++    /* Long modifier.*/
++    if (c == 'l' || c == 'L') {
++      is_long = TRUE;
++      if (*fmt)
++        c = *fmt++;
++    }
++    else
++      is_long = (c >= 'A') && (c <= 'Z');
++
++    /* Command decoding.*/
++    switch (c) {
++    case 'c':
++      filler = ' ';
++      *p++ = va_arg(ap, int);
++      break;
++    case 's':
++      filler = ' ';
++      if ((s = va_arg(ap, char *)) == 0)
++        s = "(null)";
++      if (precision == 0)
++        precision = 32767;
++      for (p = s; *p && (--precision >= 0); p++)
++        ;
++      break;
++    case 'D':
++    case 'd':
++    case 'I':
++    case 'i':
++      if (is_long)
++        l = va_arg(ap, long);
++      else
++        l = va_arg(ap, int);
++      if (l < 0) {
++        *p++ = '-';
++        l = -l;
++      }
++      p = ltoa(p, l, 10);
++      break;
++#if CHPRINTF_USE_FLOAT
++    case 'f':
++      f = (float) va_arg(ap, double);
++      if (f < 0) {
++        *p++ = '-';
++        f = -f;
++      }
++      p = ftoa(p, f);
++      break;
++#endif
++    case 'X':
++    case 'x':
++      c = 16;
++      goto unsigned_common;
++    case 'U':
++    case 'u':
++      c = 10;
++      goto unsigned_common;
++    case 'O':
++    case 'o':
++      c = 8;
++unsigned_common:
++      if (is_long)
++        l = va_arg(ap, unsigned long);
++      else
++        l = va_arg(ap, unsigned int);
++      p = ltoa(p, l, c);
++      break;
++    default:
++      *p++ = c;
++      break;
++    }
++    i = (int)(p - s);
++    if ((width -= i) < 0)
++      width = 0;
++    if (left_align == FALSE)
++      width = -width;
++    if (width < 0) {
++      if (*s == '-' && filler == '0') {
++        *(buf++) = (uint8_t)*s++;
++        i--;
++      }
++      do
++        *(buf++) = (uint8_t)filler;
++      while (++width != 0);
++    }
++    while (--i >= 0)
++      *(buf++) =  (uint8_t)*s++;
++
++    while (width) {
++      *(buf++) =  (uint8_t)filler;
++      width--;
++    }
++  }
++}
++
++/** @} */
+diff -Naur ChibiOS_2.6.5.org/os/various/chsprintf.h ChibiOS_2.6.5/os/various/chsprintf.h
+--- ChibiOS_2.6.5.org/os/various/chsprintf.h	1970-01-01 01:00:00.000000000 +0100
++++ ChibiOS_2.6.5/os/various/chsprintf.h	2014-07-14 01:51:08.469703953 +0200
+@@ -0,0 +1,45 @@
++/*
++    ChibiOS/RT - Copyright (C) 2006-2013 Giovanni Di Sirio
++
++    Licensed under the Apache License, Version 2.0 (the "License");
++    you may not use this file except in compliance with the License.
++    You may obtain a copy of the License at
++
++        http://www.apache.org/licenses/LICENSE-2.0
++
++    Unless required by applicable law or agreed to in writing, software
++    distributed under the License is distributed on an "AS IS" BASIS,
++    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
++    See the License for the specific language governing permissions and
++    limitations under the License.
++*/
++
++/**
++ * @file    chsprintf.h
++ * @brief   Mini sprintf-like functionality.
++ *
++ * @addtogroup chprintf
++ * @{
++ */
++
++#ifndef _CHSPRINTF_H_
++#define _CHSPRINTF_H_
++
++/**
++ * @brief   Float type support.
++ */
++#if !defined(CHPRINTF_USE_FLOAT) || defined(__DOXYGEN__)
++#define CHPRINTF_USE_FLOAT          FALSE
++#endif
++
++#ifdef __cplusplus
++extern "C" {
++#endif
++  void chsprintf(char *buf, const char *fmt, ...);
++#ifdef __cplusplus
++}
++#endif
++
++#endif /* _CHSPRINTF_H_ */
++
++/** @} */
